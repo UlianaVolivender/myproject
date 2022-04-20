@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Java Script</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="presentation">
+        <p id="txt">hello world :)</p>
+    </div>
+    <form name="form1" id="presentation_btn">
+        <div class="butt">
+            <input type="button" name="btn_edit" value="Редагувати" class="btn">
+            <input type="button" name="btn_custom" value="Стилізувати" class="btn">
+        </div>
+    </form>
+    <div id="editing">
+        <form name="form2" id="editing_txt">
+            <textarea class="area_edd" name="area_edit" cols="0" rows="0"></textarea>
+            <br>
+            <div class="butt">
+                <input type="button" name="btn_save" value="Зберегти" class="btn btn_min">
+                <input type="button" name="btn_add" value="Додати" class="btn btn_min">
+                <input type="button" name="btn_remove" value="Очистити" class="btn btn_min">
+            </div>
+        </form>
+        <form name="form3" id="editing_param">
+            <div class="txt_siz"> <span>Розмір тексту: </span>
+                <label>
+                    <input type="radio" name="radio" value="12px">12px</label>
+                <label>
+                    <input type="radio" name="radio" value="14px">14px</label>
+                <label>
+                    <input type="radio" name="radio" value="16px" checked>16px</label>
+                <label>
+                    <input type="radio" name="radio" value="18px">18px</label>
+                <label>
+                    <input type="radio" name="radio" value="20px">20px</label>
+            </div>
+            <div class="font"><span>Шрифт: </span>
+                <select name="select">
+                    <option value="Times">Times</option>
+                    <option value="Arial" selected>Arial</option>
+                    <option value="Tahoma">Tahoma</option>
+                    <option value="consolas">Consolas</option>
+                </select>
+            </div>
+            <br>
+            <div class="btn_color">
+                <input type="button" value="Колір тексту" name="change_color_txt" class="btn btn_min">
+                <input type="button" value="Колір фону" name="change_color_bg" class="btn btn_min">
+                <div id="gamma">
+                    <div id="red"></div>
+                    <div id="green"></div>
+                    <div id="blue"></div>
+                    <div id="white"></div>
+                    <div id="orange"></div>
+                    <div id="violet"></div>
+                    <div id="black"></div>
+                    <div id="grey"></div>
+                    <div id="pink"></div>
+                </div>
+            </div>
+            <br>
+            <div class="type_fonts">
+                <label>Italic
+                    <input type="checkbox" name="ch1" value="italic"> </label>
+                <label>Bold
+                    <input type="checkbox" name="ch2" value="bold" checked> </label>
+            </div>
+            <input type="button" value="Зберегти" name="btn_ok" class="btn btn_min btn_ok">
+        </form>
+    </div>
+
+    <script>
+        //        Оголошення / ініціалізація змінних
+        let form1 = document.forms.form1;
+        let form2 = document.forms.form2;
+        let form3 = document.forms.form3;
+        let form4 = document.forms.form4;
+        let form5 = document.forms.form5;
+        //        Функція при натисканні на кнопку редагувати
+        form1.btn_edit.onclick = function() {
+            editing.style.display = "block";
+            editing_txt.style.display = "block";
+            editing_param.style.display = "none";
+            form2.area_edit.value = txt.innerHTML;
+        };
+        //        Функція при натисканні на кнопку зберегти 
+        form2.btn_save.onclick = function() {
+            if (form2.area_edit.value) {
+                txt.innerHTML = form2.area_edit.value;
+                form2.area_edit.value = " ";
+                editing.style.display = "none";
+            }
+        };
+        //        Функція при натисканні на кнопку очистити
+        form2.btn_remove.onclick = function() {
+            form2.area_edit.value = " ";
+        }
+        //        Функція при натисканні на кнопку стилізувати
+        form1.btn_custom.onclick = function() {
+            editing_txt.style.display = "none";
+            editing.style.display = "block";
+            editing_param.style.display = "block";
+        };
+
+        ///Функція для зміни кольору тексту
+        form3.change_color_txt.onclick = function() {
+            gamma.style.display = 'block';
+        }
+        red.onclick = function() {
+            txt.style.color = 'red';
+            gamma.style.display = 'none'
+        }
+
+        green.onclick = function() {
+            txt.style.color = 'green';
+            gamma.style.display = 'none'
+
+        }
+        blue.onclick = function() {
+            txt.style.color = 'blue';
+            gamma.style.display = 'none'
+        }
+
+        white.onclick = function() {
+            txt.style.color = 'white';
+            gamma.style.display = 'none'
+        }
+        orange.onclick = function() {
+            txt.style.color = 'orange';
+            gamma.style.display = 'none'
+        }
+        violet.onclick = function() {
+            txt.style.color = 'violet';
+            gamma.style.display = 'none'
+        }
+        black.onclick = function() {
+            txt.style.color = 'black';
+            gamma.style.display = 'none'
+        }
+        grey.onclick = function() {
+            txt.style.color = 'grey';
+            gamma.style.display = 'none'
+        }
+        pink.onclick = function() {
+            txt.style.color = 'pink';
+            gamma.style.display = 'none'
+        }
+        ///функція для зміни фону
+
+        form3.change_color_bg.onclick = function() {
+            gamma.style.display = 'block';
+            red.onclick = function() {
+                presentation.style.backgroundColor = 'red';
+                gamma.style.display = 'none';
+            }
+            green.onclick = function() {
+                presentation.style.backgroundColor = 'green';
+                gamma.style.display = 'none';
+            }
+
+            blue.onclick = function() {
+                presentation.style.backgroundColor = 'blue';
+                gamma.style.display = 'none';
+            }
+            white.onclick = function() {
+                presentation.style.backgroundColor = 'white';
+                gamma.style.display = 'none';
+            }
+            orange.onclick = function() {
+                presentation.style.backgroundColor = 'orenge';
+                gamma.style.display = 'none';
+            }
+            violet.onclick = function() {
+                presentation.style.backgroundColor = 'violet';
+                gamma.style.display = 'none';
+            }
+            black.onclick = function() {
+                presentation.style.backgroundColor = 'black';
+                gamma.style.display = 'none';
+            }
+            grey.onclick = function() {
+                presentation.style.backgroundColor = 'grey';
+                gamma.style.display = 'none';
+            }
+            pink.onclick = function() {
+                presentation.style.backgroundColor = 'pink';
+                gamma.style.display = 'none';
+            }
+        }
+
+        for (let i = 0; i < form3.radio.length; i++) {
+            form3.radio[i].onclick = function() {
+                txt.style.fontSize = this.value;
+            }
+        }
+
+        form3.select.onclick = function() {
+            for (let i = 0; i < form3.select.options.length; i++) {
+                if (form3.select.options[i].selected) {
+                    txt.style.fontFamily = form3.select.options[i].value;
+                }
+            }
+        }
+        
+        ///Зміну шрифта
+        form3.ch1.onclick = function(){
+            if(from3.ch1.checked){
+                txt.style = this.value;
+            }else{
+                txt.style.fontStyle ='normal'
+            }
+        }
+        form3.ch2.onclick = function(){
+               if(form3.ch2.checked){
+                txt.style.fontWeight = this.value;
+            }else{
+                txt.style.fontWeight ='normal'
+            }
+        }
+        
+        
+        
+    </script>
+</body></html>
